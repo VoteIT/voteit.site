@@ -1,2 +1,2 @@
-include *.txt *.ini *.cfg *.rst
-recursive-include voteitsite *.ico *.png *.css *.gif *.jpg *.pt *.txt *.mak *.mako *.js *.html *.xml
+include *.txt *.ini *.rst
+recursive-include voteit.site *.png *.css *.gif *.jpg *.pt *.txt *.js *.html

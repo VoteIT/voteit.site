@@ -18,19 +18,17 @@ setup(name='voteit.site',
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
         ],
-      author='',
-      author_email='',
-      url='',
+      author='VoteIT dev team',
+      author_email='info@voteit.se',
+      url='http://www.voteit.se',
       keywords='web pyramid pylons',
       packages=find_packages(),
       include_package_data=True,
       zip_safe=False,
       install_requires=requires,
       tests_require=requires,
-      test_suite="voteitsite",
+      test_suite="voteit.site",
       entry_points = """\
-      [paste.app_factory]
-      main = voteitsite:main
       """,
       paster_plugins=['pyramid'],
       )
