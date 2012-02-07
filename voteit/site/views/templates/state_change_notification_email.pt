@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="voteit.site">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div i18n:translate=""><span tal:replace="title" i18n:name="meeting_title">the meeting</span> 
+has changed state from <span tal:replace="old_state" i18n:name="old_state">old state</span> to 
+<span tal:replace="new_state" i18n:name="new_state">new state</span>.</div>
+
+<h5 i18n:translate="">Click the link to access this VoteIT meeting:</h5>
+<a tal:attributes="href url"
+   tal:content="url">link</a>
+
+<div i18n:translate="">
+Warm regards, The VoteIT team
+</div>
+
+</body>
+</html>
