@@ -30,7 +30,7 @@ def state_change_notification(meeting, event):
 
     msg = Message(subject=_(u"VoteIT meeting state changed"),
                   sender = sender and sender or None,
-                  recipients="info@voteit.se",
+                  recipients=("info@voteit.se",),
                   html=body_html)
 
     mailer = get_mailer(request)
