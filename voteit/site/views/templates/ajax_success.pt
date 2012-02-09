@@ -5,4 +5,4 @@
 	  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
 	  i18n:domain="voteit.site">
 </html>
-<div metal:define-slot="form" tal:condition="form|False" tal:content="structure form">Form</div>
+<h5 tal:content="message">Message</h5>
