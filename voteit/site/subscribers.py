@@ -26,7 +26,7 @@ def state_change_notification(meeting, event):
                 'old_state': event.old_state.title().lower(),
                 'url': url,
                 }
-    body_html = render('views/templates/state_change_notification_email.pt', response, request=request)
+    body_html = render('views/templates/email/state_change_notification.pt', response, request=request)
 
     msg = Message(subject=_(u"VoteIT meeting state changed"),
                   sender = sender and sender or None,
