@@ -9,6 +9,14 @@ from voteit.site import SiteMF as _
 
 @schema_factory('SupportSchema')
 class SupportSchema(colander.MappingSchema):
+    name = colander.SchemaNode(colander.String(),
+                               title = _(u"Name"),
+                               description = _(u"Empty this field if you want to be anonymous"),
+                               missing=u"")
+    email = colander.SchemaNode(colander.String(),
+                               title = _(u"Email"),
+                               description = _(u"Empty this field if you want to be anonymous"),
+                               missing=u"")
     subject = colander.SchemaNode(colander.String(),
                                   title = _(u"Subject"),
                                   validator = html_string_validator,)

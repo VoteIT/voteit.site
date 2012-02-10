@@ -49,7 +49,8 @@ class HelpView(BaseView):
             response = {
                         'api': self.api,
                         'meeting': self.api.meeting,
-                        'user': self.api.get_user(self.api.userid),
+                        'name': appstruct['name'],
+                        'email': appstruct['email'],
                         'subject': appstruct['subject'],
                         'message': appstruct['message'],
                         }
@@ -67,5 +68,10 @@ class HelpView(BaseView):
             return Response(render("templates/ajax_success.pt", self.response, request = self.request))
 
         #No action - Render form
-        self.response['form'] = form.render()
+        appstruct = {}
+        user = self.api.get_user(self.api.userid)
+        if user:
+            appstruct['name'] = user.title
+            appstruct['email'] = user.get_field_value('email')
+        self.response['form'] = form.render(appstruct=appstruct)
         return render("templates/ajax_edit.pt", self.response, request = self.request)
