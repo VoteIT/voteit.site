@@ -22,14 +22,14 @@ from voteit.core import fanstaticlib
 from voteit.site import SiteMF as _
 
 class HelpView(BaseView):
-    @view_config(name = 'support', context=ISiteRoot, permission=NO_PERMISSION_REQUIRED)
-    def support(self):
-        """ Support form
+    @view_config(name = 'feedback', context=ISiteRoot, renderer="templates/ajax_edit.pt", permission=NO_PERMISSION_REQUIRED)
+    def feedback(self):
+        """ Feedback form
         """
-        schema = createSchema('SupportSchema').bind(context=self.context, request=self.request)
+        schema = createSchema('FeedbackSchema').bind(context=self.context, request=self.request)
         add_csrf_token(self.context, self.request, schema)
             
-        form = Form(schema, action=resource_url(self.context, self.request)+"@@support", buttons=(button_send,), formid="help-tab-support-form", use_ajax=True)
+        form = Form(schema, action=resource_url(self.context, self.request)+"@@feedback", buttons=(button_send,), formid="help-tab-feedback-form", use_ajax=True)
         self.api.register_form_resources(form)
 
         post = self.request.POST
@@ -40,11 +40,11 @@ class HelpView(BaseView):
                 appstruct = form.validate(controls)
             except ValidationFailure, e:
                 self.response['form'] = e.render()
-                return Response(render("templates/ajax_edit.pt", self.response, request = self.request))
+                return self.response
             
             sender = "VoteIT <info@voteit.se>"
 
-            recipients = ("info@voteit.se",) 
+            recipients = ("feedback@voteit.se",) 
 
             response = {
                         'api': self.api,
@@ -56,7 +56,7 @@ class HelpView(BaseView):
                         }
             body_html = render('templates/email/help_support.pt', response, request=self.request)
         
-            msg = Message(subject=_(u"VoteIT - Support request"),
+            msg = Message(subject=_(u"VoteIT - Feedback"),
                           sender = sender and sender or None,
                           recipients=recipients,
                           html=body_html)
@@ -74,4 +74,4 @@ class HelpView(BaseView):
             appstruct['name'] = user.title
             appstruct['email'] = user.get_field_value('email')
         self.response['form'] = form.render(appstruct=appstruct)
-        return render("templates/ajax_edit.pt", self.response, request = self.request)
+        return self.response

@@ -7,8 +7,8 @@ from voteit.core.validators import html_string_validator
 from voteit.site import SiteMF as _
 
 
-@schema_factory('SupportSchema')
-class SupportSchema(colander.MappingSchema):
+@schema_factory('FeedbackSchema')
+class FeedbacktSchema(colander.MappingSchema):
     name = colander.SchemaNode(colander.String(),
                                title = _(u"Name"),
                                description = _(u"Empty this field if you want to be anonymous"),
