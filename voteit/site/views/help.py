@@ -21,6 +21,7 @@ from voteit.core import fanstaticlib
 
 from voteit.site import SiteMF as _
 
+
 class HelpView(BaseView):
     @view_config(name = 'feedback', context=ISiteRoot, renderer="templates/ajax_edit.pt", permission=NO_PERMISSION_REQUIRED)
     def feedback(self):
