@@ -27,10 +27,11 @@ class HelpView(BaseView):
     def feedback(self):
         """ Feedback form
         """
-        schema = createSchema('FeedbackSchema').bind(context=self.context, request=self.request)
+        schema = createSchema('FeedbackSchema').bind(context=self.context, request=self.request, api = self.api)
         add_csrf_token(self.context, self.request, schema)
             
         form = Form(schema, action=resource_url(self.context, self.request)+"@@feedback", buttons=(button_send,), formid="help-tab-feedback-form", use_ajax=True)
+        #FIXME: This doesn't seem to work when loaded with ajax. We need to investigate more.
         self.api.register_form_resources(form)
 
         post = self.request.POST
@@ -69,19 +70,14 @@ class HelpView(BaseView):
             return Response(render("templates/ajax_success.pt", self.response, request = self.request))
 
         #No action - Render form
-        appstruct = {}
-        user = self.api.get_user(self.api.userid)
-        if user:
-            appstruct['name'] = user.title
-            appstruct['email'] = user.get_field_value('email')
-        self.response['form'] = form.render(appstruct=appstruct)
+        self.response['form'] = form.render()
         return self.response
     
     @view_config(name = 'support', context=ISiteRoot, renderer="templates/ajax_edit.pt", permission=NO_PERMISSION_REQUIRED)
     def support(self):
         """ Support form
         """
-        schema = createSchema('SupportSchema').bind(context=self.context, request=self.request)
+        schema = createSchema('SupportSchema').bind(context=self.context, request=self.request, api = self.api)
         add_csrf_token(self.context, self.request, schema)
             
         form = Form(schema, action=resource_url(self.context, self.request)+"@@support", buttons=(button_send,), formid="help-tab-support-form", use_ajax=True)
@@ -123,10 +119,5 @@ class HelpView(BaseView):
             return Response(render("templates/ajax_success.pt", self.response, request = self.request))
 
         #No action - Render form
-        appstruct = {}
-        user = self.api.get_user(self.api.userid)
-        if user:
-            appstruct['name'] = user.title
-            appstruct['email'] = user.get_field_value('email')
-        self.response['form'] = form.render(appstruct=appstruct)
+        self.response['form'] = form.render()
         return self.response
