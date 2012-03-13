@@ -107,7 +107,7 @@ class HelpView(BaseView):
                         }
             body_html = render('templates/email/help_support.pt', response, request=self.request)
         
-            msg = Message(subject=_(u"VoteIT - Feedback"),
+            msg = Message(subject=_(u"VoteIT - Support"),
                           sender = sender and sender or None,
                           recipients=recipients,
                           html=body_html)
