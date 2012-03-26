@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="api.main_template.macros['master']"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="voteit.core">
+<body>
+    <div metal:fill-slot="content" class="content_wrapper">
+
+	    <h3 i18n:translate="">
+	        Showing
+	        <span tal:replace="len(support_storage)" i18n:name="count">5</span>
+	        support requests
+	    </h3>
+
+        <table class="listing">
+            <thead>
+                <tr>
+                    <th i18n:translate="" class="heading">Created</th>
+                    <th i18n:translate="" class="heading">Subject</th>
+                    <th i18n:translate="" class="heading">Message</th>
+                    <th i18n:translate="" class="heading">Name</th>
+                    <th i18n:translate="" class="heading">Email</th>
+                    <th i18n:translate="" class="heading">Meeting</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tal:iterate repeat="support_request support_storage">
+                <tr tal:attributes="class repeat.support_request.odd and 'odd' or 'even'">
+                	<td tal:content="api.dt_util.dt_format(support_request.created)|string:-">Created</td>
+                    <td tal:content="support_request.subject">Subject</td>
+                    <td tal:content="support_request.message">Message</td>
+                    <td tal:content="support_request.name">Name</td>
+                    <td>
+                        <a tal:condition="support_request.email" tal:content="support_request.email"
+                           tal:attributes="href 'mailto:%s' % support_request.email">
+                            email
+                        </a>
+                    </td>
+                    <td>
+                        <a tal:condition="support_request.meeting" tal:content="support_request.meeting"
+                           href="${api.resource_url(support_request.meeting, request)}">
+                        Meeting
+                        </a>
+                    </td>
+                </tr>
+                </tal:iterate>
+            </tbody>
+        </table>
+        <br/>
+        <a class="buttonize large"
+           tal:attributes="href api.resource_url(context, request)">
+            <span i18n:translate="">Back</span>
+        </a><br/>
+
+    </div> <!-- content -->
+</body>
+</html>

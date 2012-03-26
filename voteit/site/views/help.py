@@ -9,6 +9,7 @@ from pyramid.renderers import render
 from pyramid.response import Response
 from pyramid_mailer import get_mailer
 from pyramid_mailer.message import Message
+from pyramid.traversal import find_root
 from betahaus.pyracont.factories import createSchema
 
 from voteit.core import security
@@ -20,6 +21,7 @@ from voteit.core.models.schemas import button_send
 from voteit.core import fanstaticlib
 
 from voteit.site import SiteMF as _
+from voteit.site.models.interfaces import ISupportStorage 
 
 
 class HelpView(BaseView):
@@ -114,6 +116,11 @@ class HelpView(BaseView):
         
             mailer = get_mailer(self.request)
             mailer.send(msg)
+
+            # add the message to the support storage    
+            root = find_root(self.context)
+            support_storage = self.request.registry.getAdapter(root, ISupportStorage)
+            support_storage.add(appstruct['message'], subject=appstruct['subject'], name=appstruct['name'], email=appstruct['email'], meeting=self.api.meeting)
             
             self.response['message'] = _(u"Message sent to VoteIT")
             return Response(render("templates/ajax_success.pt", self.response, request = self.request))
