@@ -26,6 +26,7 @@ from voteit.site.models.interfaces import ISupportStorage
 
 class HelpView(BaseView):
     @view_config(name = 'feedback', context=ISiteRoot, renderer="templates/ajax_edit.pt", permission=NO_PERMISSION_REQUIRED)
+    @view_config(name = 'feedback', context=IMeeting, renderer="templates/ajax_edit.pt", permission=security.VIEW)
     def feedback(self):
         """ Feedback form
         """
@@ -76,6 +77,7 @@ class HelpView(BaseView):
         return self.response
     
     @view_config(name = 'support', context=ISiteRoot, renderer="templates/ajax_edit.pt", permission=NO_PERMISSION_REQUIRED)
+    @view_config(name = 'support', context=IMeeting, renderer="templates/ajax_edit.pt", permission=security.VIEW)
     def support(self):
         """ Support form
         """
