@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-04-05 10:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./views/templates/email/state_change_notification.pt:13
+msgid "${meeting_title} has changed state from ${old_state} to ${new_state}."
+msgstr ""
+
+#: ./views/templates/email/state_change_notification.pt:15
+msgid "Click the link to access this VoteIT meeting:"
+msgstr ""
+
+#: ./views/templates/email/help_support.pt:21
+msgid "Click the link to get to the VoteIT meeting:"
+msgstr ""
+
+#: ./schemas/help.py:8
+msgid "Contact the VoteIT team with feedback. Please enter your email address if you want to be able to receive a reply!"
+msgstr ""
+
+#: ./schemas/help.py:7
+#: ./views/components/help_actions.py:16
+msgid "Feedback"
+msgstr ""
+
+#: ./views/templates/email/help_support.pt:12
+msgid "From"
+msgstr ""
+
+#: ./views/help.py:72
+msgid "Message sent to VoteIT"
+msgstr ""
+
+#: ./schemas/help.py:12
+#: ./views/components/help_actions.py:26
+msgid "Support"
+msgstr ""
+
+#: ./models/support_storage.py:48
+msgid "Support request"
+msgstr ""
+
+#: ./views/components/meeting_actions.py:7
+msgid "Support requests"
+msgstr ""
+
+#: ./views/help.py:64
+msgid "VoteIT - Feedback"
+msgstr ""
+
+#: ./views/help.py:114
+msgid "VoteIT - Support"
+msgstr ""
+
+#: ./subscribers.py:31
+msgid "VoteIT meeting state changed"
+msgstr ""
+
+#: ./views/templates/email/help_support.pt:26
+#: ./views/templates/email/state_change_notification.pt:19
+msgid "Warm regards, The VoteIT team"
+msgstr ""
+
