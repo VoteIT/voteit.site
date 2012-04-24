@@ -25,8 +25,8 @@ from voteit.site.models.interfaces import ISupportStorage
 
 
 class HelpView(BaseView):
-    @view_config(name = 'feedback', context=ISiteRoot, renderer="templates/ajax_edit.pt", permission=NO_PERMISSION_REQUIRED)
-    @view_config(name = 'feedback', context=IMeeting, renderer="templates/ajax_edit.pt", permission=security.VIEW)
+    @view_config(name = 'feedback', context=ISiteRoot, renderer="voteit.core.views:templates/ajax_edit.pt", permission=NO_PERMISSION_REQUIRED)
+    @view_config(name = 'feedback', context=IMeeting, renderer="voteit.core.views:templates/ajax_edit.pt", permission=security.VIEW)
     def feedback(self):
         """ Feedback form
         """
@@ -70,14 +70,14 @@ class HelpView(BaseView):
             mailer.send(msg)
             
             self.response['message'] = _(u"Message sent to VoteIT")
-            return Response(render("templates/ajax_success.pt", self.response, request = self.request))
+            return Response(render("voteit.core.views:templates/ajax_success.pt", self.response, request = self.request))
 
         #No action - Render form
         self.response['form'] = form.render()
         return self.response
     
-    @view_config(name = 'support', context=ISiteRoot, renderer="templates/ajax_edit.pt", permission=NO_PERMISSION_REQUIRED)
-    @view_config(name = 'support', context=IMeeting, renderer="templates/ajax_edit.pt", permission=security.VIEW)
+    @view_config(name = 'support', context=ISiteRoot, renderer="voteit.core.views:templates/ajax_edit.pt", permission=NO_PERMISSION_REQUIRED)
+    @view_config(name = 'support', context=IMeeting, renderer="voteit.core.views:templates/ajax_edit.pt", permission=security.VIEW)
     def support(self):
         """ Support form
         """
@@ -125,7 +125,7 @@ class HelpView(BaseView):
             support_storage.add(appstruct['message'], subject=appstruct['subject'], name=appstruct['name'], email=appstruct['email'], meeting=self.api.meeting)
             
             self.response['message'] = _(u"Message sent to VoteIT")
-            return Response(render("templates/ajax_success.pt", self.response, request = self.request))
+            return Response(render("voteit.core.views:templates/ajax_success.pt", self.response, request = self.request))
 
         #No action - Render form
         self.response['form'] = form.render()
