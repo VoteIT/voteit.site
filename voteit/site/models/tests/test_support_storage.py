@@ -45,6 +45,9 @@ class SupportStorageTests(unittest.TestCase):
         self.assertEqual(obj.support_storage[0].name, 'name')
         self.assertEqual(obj.support_storage[0].email, 'email')
         self.assertEqual(obj.support_storage[0].meeting, meeting)
+        
+        obj.add('message', subject='subject', name='name', email='email', meeting=meeting)
+        self.assertEqual(len(obj.support_storage), 2)
 
     def test_registration_on_include(self):
         self.config.include('voteit.site.models.support_storage')
