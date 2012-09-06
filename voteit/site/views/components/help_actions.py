@@ -13,7 +13,7 @@ def action_feedback(context, request, va, **kw):
         context = api.meeting
     else:
         context = api.root 
-    return """<li><a class="tab buttonize" href="%s">%s</a></li>""" % (resource_url(context, request)+"@@feedback", api.translate(_(u"Feedback")),)
+    return """<li><a class="tab buttonize" href="%s">%s</a></li>""" % (resource_url(context, request)+"feedback", api.translate(_(u"Feedback")),)
 
 @view_action('help_action', 'support')
 def action_support(context, request, va, **kw):
@@ -23,4 +23,4 @@ def action_support(context, request, va, **kw):
     else:
         context = api.root
     api = kw['api']
-    return """<li><a class="tab buttonize" href="%s">%s</a></li>""" % (resource_url(context, request)+"@@support", api.translate(_(u"Support")),)
+    return """<li><a class="tab buttonize" href="%s">%s</a></li>""" % (resource_url(context, request)+"support", api.translate(_(u"Support")),)

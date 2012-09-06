@@ -33,7 +33,7 @@ class HelpView(BaseView):
         schema = createSchema('FeedbackSchema').bind(context=self.context, request=self.request, api = self.api)
         add_csrf_token(self.context, self.request, schema)
             
-        form = Form(schema, action=resource_url(self.context, self.request)+"@@feedback", buttons=(button_send,), formid="help-tab-feedback-form", use_ajax=True)
+        form = Form(schema, action=resource_url(self.context, self.request)+"feedback", buttons=(button_send,), formid="help-tab-feedback-form", use_ajax=True)
         #FIXME: This doesn't seem to work when loaded with ajax. We need to investigate more.
         self.api.register_form_resources(form)
 
@@ -84,7 +84,7 @@ class HelpView(BaseView):
         schema = createSchema('SupportSchema').bind(context=self.context, request=self.request, api = self.api)
         add_csrf_token(self.context, self.request, schema)
             
-        form = Form(schema, action=resource_url(self.context, self.request)+"@@support", buttons=(button_send,), formid="help-tab-support-form", use_ajax=True)
+        form = Form(schema, action=resource_url(self.context, self.request)+"support", buttons=(button_send,), formid="help-tab-support-form", use_ajax=True)
         self.api.register_form_resources(form)
 
         post = self.request.POST
