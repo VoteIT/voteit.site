@@ -9,6 +9,7 @@ from voteit.site import SiteMF as _
 class FeedbacktSchema(ContactSchema):
     """ Feedback contact form schema. Same as contact in voteit.core """
 
+
 @schema_factory('SupportSchema', title=_("Support"))
 class SupportSchema(ContactSchema):
     """ Support contact form schema. Same as contact in voteit.core """

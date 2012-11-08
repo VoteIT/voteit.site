@@ -7,25 +7,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-
 <tal:user condition="name or email">
 	<span i18n:translate="">From</span>: <span tal:condition="name" tal:replace="name">Name</span> <span tal:condition="email">&#60;<span tal:replace="email">Email</span>&#62;</span>
 </tal:user>
-
 <h3 tal:content="subject">Subject</h3>
-<div tal:replace="message">
+<div tal:content="message">
 	Message
 </div>
-
 <tal:meeting condition="meeting">
 <h5 i18n:translate="">Click the link to get to the VoteIT meeting:</h5>
 <a tal:attributes="href api.resource_url(meeting, api.request)"
    tal:content="api.resource_url(meeting, api.request)">link</a>
 </tal:meeting>
-
-<div i18n:translate="">
-Warm regards, The VoteIT team
-</div>
+<hr/>
+<div>User agent string: ${request['HTTP_USER_AGENT']|''}</div>
 
 </body>
 </html>

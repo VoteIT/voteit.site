@@ -11,9 +11,6 @@ from voteit.site.models.interfaces import ISupportStorage
 class SupportView(BaseView):
     @view_config(name = 'support_requests', context=ISiteRoot, renderer="templates/support_requests.pt", permission=security.MANAGE_SERVER, )
     def support_requests(self):
-        
         adapter = self.request.registry.getAdapter(self.context, ISupportStorage)
-        
         self.response['support_storage'] = adapter.support_storage.values()
-        
         return self.response

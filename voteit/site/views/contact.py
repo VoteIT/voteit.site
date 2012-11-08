@@ -24,7 +24,8 @@ from voteit.site import SiteMF as _
 from voteit.site.models.interfaces import ISupportStorage 
 
 
-class HelpView(BaseView):
+class SupportView(BaseView):
+
     @view_config(name = 'feedback', context=ISiteRoot, renderer="voteit.core.views:templates/ajax_edit.pt", permission=NO_PERMISSION_REQUIRED)
     @view_config(name = 'feedback', context=IMeeting, renderer="voteit.core.views:templates/ajax_edit.pt", permission=security.VIEW)
     def feedback(self):
@@ -32,13 +33,11 @@ class HelpView(BaseView):
         """
         schema = createSchema('FeedbackSchema').bind(context=self.context, request=self.request, api = self.api)
         add_csrf_token(self.context, self.request, schema)
-            
         form = Form(schema, action=resource_url(self.context, self.request)+"feedback", buttons=(button_send,), formid="help-tab-feedback-form", use_ajax=True)
         #FIXME: This doesn't seem to work when loaded with ajax. We need to investigate more.
         self.api.register_form_resources(form)
 
         post = self.request.POST
-
         if self.request.method == 'POST':
             controls = post.items()
             try:
@@ -46,13 +45,9 @@ class HelpView(BaseView):
             except ValidationFailure, e:
                 self.response['form'] = e.render()
                 return self.response
-            
-            sender = "VoteIT <info@voteit.se>"
-
+            sender = appstruct['email'] and appstruct['email'] or "VoteIT <noreply@voteit.se>"
             recipients = ("feedback@voteit.se",) 
-
-            response = {
-                        'api': self.api,
+            response = {'api': self.api,
                         'meeting': self.api.meeting,
                         'name': appstruct['name'],
                         'email': appstruct['email'],
@@ -60,15 +55,13 @@ class HelpView(BaseView):
                         'message': appstruct['message'],
                         }
             body_html = render('templates/email/help_support.pt', response, request=self.request)
-        
-            msg = Message(subject=_(u"VoteIT - Feedback"),
+            subject = "[%s] | %s" % (self.api.translate(_(u"VoteIT Feedback")), appstruct['subject'])
+            msg = Message(subject = subject,
                           sender = sender and sender or None,
                           recipients=recipients,
                           html=body_html)
-        
             mailer = get_mailer(self.request)
             mailer.send(msg)
-            
             self.response['message'] = _(u"Message sent to VoteIT")
             return Response(render("voteit.core.views:templates/ajax_success.pt", self.response, request = self.request))
 
@@ -83,12 +76,10 @@ class HelpView(BaseView):
         """
         schema = createSchema('SupportSchema').bind(context=self.context, request=self.request, api = self.api)
         add_csrf_token(self.context, self.request, schema)
-            
         form = Form(schema, action=resource_url(self.context, self.request)+"support", buttons=(button_send,), formid="help-tab-support-form", use_ajax=True)
         self.api.register_form_resources(form)
 
         post = self.request.POST
-
         if self.request.method == 'POST':
             controls = post.items()
             try:
@@ -97,12 +88,9 @@ class HelpView(BaseView):
                 self.response['form'] = e.render()
                 return self.response
             
-            sender = "VoteIT <info@voteit.se>"
-
+            sender = appstruct['email'] and appstruct['email'] or "VoteIT <noreply@voteit.se>"
             recipients = ("support@voteit.se",) 
-
-            response = {
-                        'api': self.api,
+            response = {'api': self.api,
                         'meeting': self.api.meeting,
                         'name': appstruct['name'],
                         'email': appstruct['email'],
@@ -110,12 +98,11 @@ class HelpView(BaseView):
                         'message': appstruct['message'],
                         }
             body_html = render('templates/email/help_support.pt', response, request=self.request)
-        
-            msg = Message(subject=_(u"VoteIT - Support"),
+            subject = "[%s] | %s" % (self.api.translate(_(u"VoteIT Support")), appstruct['subject'])
+            msg = Message(subject = subject,
                           sender = sender and sender or None,
                           recipients=recipients,
                           html=body_html)
-        
             mailer = get_mailer(self.request)
             mailer.send(msg)
 
@@ -123,10 +110,10 @@ class HelpView(BaseView):
             root = find_root(self.context)
             support_storage = self.request.registry.getAdapter(root, ISupportStorage)
             support_storage.add(appstruct['message'], subject=appstruct['subject'], name=appstruct['name'], email=appstruct['email'], meeting=self.api.meeting)
-            
             self.response['message'] = _(u"Message sent to VoteIT")
             return Response(render("voteit.core.views:templates/ajax_success.pt", self.response, request = self.request))
 
         #No action - Render form
         self.response['form'] = form.render()
         return self.response
+
