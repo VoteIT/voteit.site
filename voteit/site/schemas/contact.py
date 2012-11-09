@@ -2,7 +2,7 @@ import colander
 import deform
 from betahaus.pyracont.decorators import schema_factory
 from voteit.core.validators import html_string_validator
-from voteit.core.schemas.help import ContactSchema
+from voteit.core.schemas.contact import ContactSchema
 from voteit.core.schemas.common import deferred_default_user_fullname
 from voteit.core.schemas.common import deferred_default_user_email
 
