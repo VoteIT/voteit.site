@@ -96,6 +96,7 @@ class SupportView(BaseView):
                         'email': appstruct['email'],
                         'subject': appstruct['subject'],
                         'message': appstruct['message'],
+                        'meeting_title': appstruct.get('meeting_title', ''),
                         }
             body_html = render('templates/email/help_support.pt', response, request=self.request)
             subject = "[%s] | %s" % (self.api.translate(_(u"VoteIT Support")), appstruct['subject'])

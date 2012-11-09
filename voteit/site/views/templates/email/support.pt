@@ -14,6 +14,9 @@
 <div tal:content="message">
 	Message
 </div>
+<div tal:condition="meeting_title">
+    <span i18n:translate="">Regarding meeting</span>: ${meeting_title}
+</div>
 <tal:meeting condition="meeting">
 <h5 i18n:translate="">Click the link to get to the VoteIT meeting:</h5>
 <a tal:attributes="href api.resource_url(meeting, api.request)"
