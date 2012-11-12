@@ -14,7 +14,7 @@
 <div tal:content="message">
 	Message
 </div>
-<div tal:condition="meeting_title">
+<div tal:condition="meeting_title|False">
     <span i18n:translate="">Regarding meeting</span>: ${meeting_title}
 </div>
 <tal:meeting condition="meeting">
