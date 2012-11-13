@@ -1,75 +1,110 @@
+
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-04-05 10:07+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-11-13 10:59-0500\n"
+"PO-Revision-Date: 2012-11-13 11:00-0500\n"
+"Last-Translator: Anders Hultman <anders@betahaus.net>\n"
+"Language-Team: sv <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
-"Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
+"Generated-By: Babel 0.9.6\n"
 
-#: ./views/templates/email/state_change_notification.pt:13
-msgid "${meeting_title} has changed state from ${old_state} to ${new_state}."
-msgstr ""
-
-#: ./views/templates/email/state_change_notification.pt:15
-msgid "Click the link to access this VoteIT meeting:"
-msgstr ""
-
-#: ./views/templates/email/help_support.pt:21
-msgid "Click the link to get to the VoteIT meeting:"
-msgstr ""
-
-#: ./schemas/help.py:8
-msgid "Contact the VoteIT team with feedback. Please enter your email address if you want to be able to receive a reply!"
-msgstr ""
-
-#: ./schemas/help.py:7
-#: ./views/components/help_actions.py:16
-msgid "Feedback"
-msgstr ""
-
-#: ./views/templates/email/help_support.pt:12
-msgid "From"
-msgstr ""
-
-#: ./views/help.py:72
-msgid "Message sent to VoteIT"
-msgstr ""
-
-#: ./schemas/help.py:12
-#: ./views/components/help_actions.py:26
-msgid "Support"
-msgstr ""
-
-#: ./models/support_storage.py:48
-msgid "Support request"
-msgstr ""
-
-#: ./views/components/meeting_actions.py:7
-msgid "Support requests"
-msgstr ""
-
-#: ./views/help.py:64
-msgid "VoteIT - Feedback"
-msgstr ""
-
-#: ./views/help.py:114
-msgid "VoteIT - Support"
-msgstr ""
-
-#: ./subscribers.py:31
+#: voteit/site/subscribers.py:31
 msgid "VoteIT meeting state changed"
-msgstr ""
+msgstr "Ett VoteITmötes tillstånd har ändrats"
 
-#: ./views/templates/email/help_support.pt:26
-#: ./views/templates/email/state_change_notification.pt:19
-msgid "Warm regards, The VoteIT team"
+#: voteit/site/models/support_storage.py:48
+msgid "Support request"
+msgstr "Support förfrågningar"
+
+#: voteit/site/schemas/contact.py:20
+#: voteit/site/views/components/help_actions.py:6
+msgid "Feedback"
+msgstr "Feedback"
+
+#: voteit/site/schemas/contact.py:21
+msgid ""
+"Contact the VoteIT team with feedback. Please enter your email address if"
+" you want to be able to receive a reply!"
 msgstr ""
+"Skicka feedback till förenignen VoteIT. Var vänlig och ange din e-postadress om"
+" du vill kunna få ett svar från oss."
+
+#: voteit/site/schemas/contact.py:26
+#: voteit/site/views/components/help_actions.py:7
+msgid "Support"
+msgstr "Hjälp"
+
+#: voteit/site/schemas/contact.py:30
+msgid "Name"
+msgstr "Namn"
+
+#: voteit/site/schemas/contact.py:34
+msgid "Email"
+msgstr "E-post"
+
+#: voteit/site/schemas/contact.py:35
+msgid "contact_schema_email_description"
+msgstr "Lämna detta fält tomt om du vill vara anonym. Notera att du inte kan få ett svar från oss om du lämnar den tom."
+
+#: voteit/site/schemas/contact.py:41
+msgid "Subject"
+msgstr "Ämne"
+
+#: voteit/site/schemas/contact.py:44
+msgid "Meeting"
+msgstr "Möte"
+
+#: voteit/site/schemas/contact.py:45
+msgid "support_schema_meeting_description"
+msgstr "Om denna fråga gäller ett specifikt möte var vänlig skriv namnet på mötet så vi har lättare att felsöka."
+
+#: voteit/site/schemas/contact.py:53
+msgid "What do you need help with?"
+msgstr "Vad behöver du hjälp med?"
+
+#: voteit/site/schemas/contact.py:54
+msgid "support_schema_message_description"
+msgstr "Var vänlig och beskriv utförligt vilket problem du har. Om du rapporterar ett fel uppskattar vi om du om du förklarar vad du gjorde när felet inträffade så att vi kan återskapa felet. Desto mer information du skickar oss desto bättre. Vi är tyvärr rysligt dåliga på tankeläsning."
+
+#: voteit/site/views/contact.py:56
+msgid "VoteIT Feedback"
+msgstr "VoteIT Feedback"
+
+#: voteit/site/views/contact.py:63 voteit/site/views/contact.py:114
+msgid "Message sent to VoteIT"
+msgstr "Meddelande skickat till VoteIT"
+
+#: voteit/site/views/contact.py:102
+msgid "VoteIT Support"
+msgstr "VoteIT Support"
+
+#: voteit/site/views/components/meeting_actions.py:7
+msgid "Support requests"
+msgstr "Support requests"
+
+#~ msgid "${meeting_title} has changed state from ${old_state} to ${new_state}."
+#~ msgstr "Tillståndet på ${meeting_title} har ändrats från ${old_state} till ${new_state}."
+
+#~ msgid "Click the link to access this VoteIT meeting:"
+#~ msgstr "Klicka på länken för att få tillgång till detta VoteIT-möte"
+
+#~ msgid "Click the link to get to the VoteIT meeting:"
+#~ msgstr "Klicka på länken för att komma till VoteIT-mötet"
+
+#~ msgid "From"
+#~ msgstr "Från"
+
+#~ msgid "VoteIT - Feedback"
+#~ msgstr "VoteIT - Feedback"
+
+#~ msgid "VoteIT - Support"
+#~ msgstr "VoteIT - Support"
+
+#~ msgid "Warm regards, The VoteIT team"
+#~ msgstr "Vänliga hälsningar, VoteIT"
 
