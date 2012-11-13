@@ -15,7 +15,6 @@ from voteit.core.models.interfaces import ISiteRoot
 from voteit.core.models.interfaces import IMeeting
 from voteit.core.models.schemas import add_csrf_token
 from voteit.core.models.schemas import button_send
-from voteit.core import fanstaticlib
 
 from voteit.site import SiteMF as _
 from voteit.site.models.interfaces import ISupportStorage 
@@ -28,7 +27,6 @@ class SupportView(BaseEdit):
     def feedback(self):
         """ Feedback form
         """
-        fanstaticlib.jquery_form.need()
         schema = createSchema('FeedbackSchema').bind(context=self.context, request=self.request, api = self.api)
         add_csrf_token(self.context, self.request, schema)
         form = Form(schema, action=self.request.resource_url(self.context, 'feedback'), buttons=(button_send,))
@@ -73,7 +71,6 @@ class SupportView(BaseEdit):
     def support(self):
         """ Support form
         """
-        fanstaticlib.jquery_form.need()
         schema = createSchema('SupportSchema').bind(context=self.context, request=self.request, api = self.api)
         add_csrf_token(self.context, self.request, schema)
         form = Form(schema, action=self.request.resource_url(self.context, 'support'), buttons=(button_send,))
