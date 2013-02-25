@@ -4,7 +4,6 @@ from voteit.site import SiteMF as _
 
 
 @view_action('help_action', 'feedback', title = _(u"Feedback"))
-@view_action('help_action', 'support', title = _(u"Support"))
 def action_contact(context, request, va, **kw):
     """ Register buttons for help actions. Keep in mind that the name and the link must be the same.
     """

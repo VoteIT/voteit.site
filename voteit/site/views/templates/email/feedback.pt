@@ -23,6 +23,7 @@
    tal:content="api.resource_url(meeting, api.request)">link</a>
 </tal:meeting>
 <hr/>
+<div>Sent from: ${request.url|''}</div>
 <div>User agent string: ${request['HTTP_USER_AGENT']|''}</div>
 
 </body>
