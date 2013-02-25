@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2012-11-13 10:59-0500\n"
+"POT-Creation-Date: 2013-02-25 13:42+0100\n"
 "PO-Revision-Date: 2012-11-13 11:00-0500\n"
 "Last-Translator: Anders Hultman <anders@betahaus.net>\n"
 "Language-Team: sv <LL@li.org>\n"
@@ -17,94 +17,75 @@ msgstr ""
 msgid "VoteIT meeting state changed"
 msgstr "Ett VoteITmötes tillstånd har ändrats"
 
-#: voteit/site/models/support_storage.py:48
-msgid "Support request"
-msgstr "Support förfrågningar"
-
-#: voteit/site/schemas/contact.py:20
-#: voteit/site/views/components/help_actions.py:6
+#: voteit/site/schemas/contact.py:8 voteit/site/views/components.py:6
 msgid "Feedback"
 msgstr "Feedback"
 
-#: voteit/site/schemas/contact.py:21
+#: voteit/site/schemas/contact.py:9
 msgid ""
 "Contact the VoteIT team with feedback. Please enter your email address if"
 " you want to be able to receive a reply!"
 msgstr ""
-"Skicka feedback till förenignen VoteIT. Var vänlig och ange din e-postadress om"
-" du vill kunna få ett svar från oss."
+"Skicka feedback till förenignen VoteIT. Var vänlig och ange din "
+"e-postadress om du vill kunna få ett svar från oss."
 
-#: voteit/site/schemas/contact.py:26
-#: voteit/site/views/components/help_actions.py:7
-msgid "Support"
-msgstr "Hjälp"
-
-#: voteit/site/schemas/contact.py:30
-msgid "Name"
-msgstr "Namn"
-
-#: voteit/site/schemas/contact.py:34
-msgid "Email"
-msgstr "E-post"
-
-#: voteit/site/schemas/contact.py:35
-msgid "contact_schema_email_description"
-msgstr "Lämna detta fält tomt om du vill vara anonym. Notera att du inte kan få ett svar från oss om du lämnar den tom."
-
-#: voteit/site/schemas/contact.py:41
-msgid "Subject"
-msgstr "Ämne"
-
-#: voteit/site/schemas/contact.py:44
-msgid "Meeting"
-msgstr "Möte"
-
-#: voteit/site/schemas/contact.py:45
-msgid "support_schema_meeting_description"
-msgstr "Om denna fråga gäller ett specifikt möte var vänlig skriv namnet på mötet så vi har lättare att felsöka."
-
-#: voteit/site/schemas/contact.py:53
-msgid "What do you need help with?"
-msgstr "Vad behöver du hjälp med?"
-
-#: voteit/site/schemas/contact.py:54
-msgid "support_schema_message_description"
-msgstr "Var vänlig och beskriv utförligt vilket problem du har. Om du rapporterar ett fel uppskattar vi om du om du förklarar vad du gjorde när felet inträffade så att vi kan återskapa felet. Desto mer information du skickar oss desto bättre. Vi är tyvärr rysligt dåliga på tankeläsning."
-
-#: voteit/site/views/contact.py:56
+#: voteit/site/views/feedback.py:49
 msgid "VoteIT Feedback"
 msgstr "VoteIT Feedback"
 
-#: voteit/site/views/contact.py:63 voteit/site/views/contact.py:114
+#: voteit/site/views/feedback.py:56
 msgid "Message sent to VoteIT"
 msgstr "Meddelande skickat till VoteIT"
 
-#: voteit/site/views/contact.py:102
-msgid "VoteIT Support"
-msgstr "VoteIT Support"
+#~ msgid "Support request"
+#~ msgstr "Support förfrågningar"
 
-#: voteit/site/views/components/meeting_actions.py:7
-msgid "Support requests"
-msgstr "Support requests"
+#~ msgid "Support"
+#~ msgstr "Hjälp"
 
-#~ msgid "${meeting_title} has changed state from ${old_state} to ${new_state}."
-#~ msgstr "Tillståndet på ${meeting_title} har ändrats från ${old_state} till ${new_state}."
+#~ msgid "Name"
+#~ msgstr "Namn"
 
-#~ msgid "Click the link to access this VoteIT meeting:"
-#~ msgstr "Klicka på länken för att få tillgång till detta VoteIT-möte"
+#~ msgid "Email"
+#~ msgstr "E-post"
 
-#~ msgid "Click the link to get to the VoteIT meeting:"
-#~ msgstr "Klicka på länken för att komma till VoteIT-mötet"
+#~ msgid "contact_schema_email_description"
+#~ msgstr ""
+#~ "Lämna detta fält tomt om du vill"
+#~ " vara anonym. Notera att du inte "
+#~ "kan få ett svar från oss om "
+#~ "du lämnar den tom."
 
-#~ msgid "From"
-#~ msgstr "Från"
+#~ msgid "Subject"
+#~ msgstr "Ämne"
 
-#~ msgid "VoteIT - Feedback"
-#~ msgstr "VoteIT - Feedback"
+#~ msgid "Meeting"
+#~ msgstr "Möte"
 
-#~ msgid "VoteIT - Support"
-#~ msgstr "VoteIT - Support"
+#~ msgid "support_schema_meeting_description"
+#~ msgstr ""
+#~ "Om denna fråga gäller ett specifikt "
+#~ "möte var vänlig skriv namnet på "
+#~ "mötet så vi har lättare att "
+#~ "felsöka."
 
-#~ msgid "Warm regards, The VoteIT team"
-#~ msgstr "Vänliga hälsningar, VoteIT"
+#~ msgid "What do you need help with?"
+#~ msgstr "Vad behöver du hjälp med?"
+
+#~ msgid "support_schema_message_description"
+#~ msgstr ""
+#~ "Var vänlig och beskriv utförligt vilket"
+#~ " problem du har. Om du rapporterar"
+#~ " ett fel uppskattar vi om du om"
+#~ " du förklarar vad du gjorde när "
+#~ "felet inträffade så att vi kan "
+#~ "återskapa felet. Desto mer information "
+#~ "du skickar oss desto bättre. Vi är"
+#~ " tyvärr rysligt dåliga på tankeläsning."
+
+#~ msgid "VoteIT Support"
+#~ msgstr "VoteIT Support"
+
+#~ msgid "Support requests"
+#~ msgstr "Support requests"
 

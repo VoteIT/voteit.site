@@ -1,14 +1,14 @@
 # Translations template for voteit.site.
-# Copyright (C) 2012 ORGANIZATION
+# Copyright (C) 2013 ORGANIZATION
 # This file is distributed under the same license as the voteit.site project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: voteit.site 0.0\n"
+"Project-Id-Version: voteit.site 0.1.dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2012-11-13 10:59-0500\n"
+"POT-Creation-Date: 2013-02-25 13:42+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,69 +21,21 @@ msgstr ""
 msgid "VoteIT meeting state changed"
 msgstr ""
 
-#: voteit/site/models/support_storage.py:48
-msgid "Support request"
-msgstr ""
-
-#: voteit/site/schemas/contact.py:20 voteit/site/views/components/help_actions.py:6
+#: voteit/site/schemas/contact.py:8 voteit/site/views/components.py:6
 msgid "Feedback"
 msgstr ""
 
-#: voteit/site/schemas/contact.py:21
+#: voteit/site/schemas/contact.py:9
 msgid ""
 "Contact the VoteIT team with feedback. Please enter your email address if you"
 " want to be able to receive a reply!"
 msgstr ""
 
-#: voteit/site/schemas/contact.py:26 voteit/site/views/components/help_actions.py:7
-msgid "Support"
-msgstr ""
-
-#: voteit/site/schemas/contact.py:30
-msgid "Name"
-msgstr ""
-
-#: voteit/site/schemas/contact.py:34
-msgid "Email"
-msgstr ""
-
-#: voteit/site/schemas/contact.py:35
-msgid "contact_schema_email_description"
-msgstr ""
-
-#: voteit/site/schemas/contact.py:41
-msgid "Subject"
-msgstr ""
-
-#: voteit/site/schemas/contact.py:44
-msgid "Meeting"
-msgstr ""
-
-#: voteit/site/schemas/contact.py:45
-msgid "support_schema_meeting_description"
-msgstr ""
-
-#: voteit/site/schemas/contact.py:53
-msgid "What do you need help with?"
-msgstr ""
-
-#: voteit/site/schemas/contact.py:54
-msgid "support_schema_message_description"
-msgstr ""
-
-#: voteit/site/views/contact.py:56
+#: voteit/site/views/feedback.py:49
 msgid "VoteIT Feedback"
 msgstr ""
 
-#: voteit/site/views/contact.py:63 voteit/site/views/contact.py:114
+#: voteit/site/views/feedback.py:56
 msgid "Message sent to VoteIT"
-msgstr ""
-
-#: voteit/site/views/contact.py:102
-msgid "VoteIT Support"
-msgstr ""
-
-#: voteit/site/views/components/meeting_actions.py:7
-msgid "Support requests"
 msgstr ""
 
