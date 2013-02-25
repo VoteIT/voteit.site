@@ -5,7 +5,6 @@ from pyramid.view import view_config
 from pyramid.renderers import render
 from pyramid_mailer import get_mailer
 from pyramid_mailer.message import Message
-from pyramid.traversal import find_root
 from pyramid.httpexceptions import HTTPFound
 from betahaus.pyracont.factories import createSchema
 
@@ -13,11 +12,9 @@ from voteit.core import security
 from voteit.core.views.base_edit import BaseEdit
 from voteit.core.models.interfaces import ISiteRoot
 from voteit.core.models.interfaces import IMeeting
-from voteit.core.models.schemas import add_csrf_token
 from voteit.core.models.schemas import button_send
 
 from voteit.site import SiteMF as _
-from voteit.site.models.interfaces import ISupportStorage 
 
 
 class FeedbackView(BaseEdit):
